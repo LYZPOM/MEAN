@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {LocalStorage} from '../common/local-storage';
+import { Http, Headers} from '@angular/http';
 
 @Component({
   selector: 'expats-twitter-login',
@@ -16,7 +17,7 @@ export class TwitterLoginComponent implements OnInit {
     );
   }
 
-  constructor(private storage: LocalStorage) {
+  constructor(private storage: LocalStorage, private http: Http) {
       this.localLang = this.storage.getItem('lang')['lang'];
   }
 
