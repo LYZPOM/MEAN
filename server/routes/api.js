@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-const passport = require('passport');
 // declare axios for making http requests
 const axios = require('axios');
 const API = 'https://jsonplaceholder.typicode.com';
@@ -10,13 +9,6 @@ const API = 'https://jsonplaceholder.typicode.com';
 router.get('/', (req, res) => {
   res.send('api works');
 });
-
-// twitter oauth
-router.get('/auth/twitter', passport.authenticate('twitter'));
-router.get('/auth/twitter/callback', passport.authenticate('twitter', {
-  failureRedirect: '/#error',
-  successRedirect: '/?source=myself'
-}));
 
 
 // Get all posts
