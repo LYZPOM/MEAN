@@ -24,12 +24,12 @@ const ROUTES = [
     pathMatch: 'full'
   },
   {
-    path: 'overview',
+    path: 'dashboard',
     loadChildren: 'app/dashboard/dashboard.module#DashboardModule'
   },
   {
-    path: 'dashboard',
-    loadChildren: 'app/dashboard/dashboard.module#DashboardModule'
+    path: 'events',
+    loadChildren: 'app/events/events.module#EventsModule'
   }
 ];
 
