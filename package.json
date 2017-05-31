@@ -31,6 +31,7 @@
     "@ngx-translate/core": "^6.0.0",
     "@ngx-translate/http-loader": "^0.0.3",
     "passport": "^0.3.2",
+    "passport-facebook": "^2.1.1",
     "passport-twitter": "^1.0.4",
     "personality-consumption-preferences": "0.0.2",
     "personality-text-summary": "^2.1.1",

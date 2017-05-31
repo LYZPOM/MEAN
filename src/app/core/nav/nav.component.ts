@@ -28,7 +28,7 @@ export class NavComponent implements OnInit {
     if (currLang=='en')
       {
         this.menuItems = [
-          { caption: 'Overview', link: ['/overview'] },
+          { caption: 'Overview', link: ['/dashboard'] },
           { caption: 'Events', link: ['/events'] },
           { caption: 'Expats', link: ['/expats'] },
           { caption: 'Food', link: ['/food'] },
@@ -38,7 +38,7 @@ export class NavComponent implements OnInit {
     else if (currLang=='zh-CN')
         {
           this.menuItems = [
-            { caption: '简介', link: ['/overview'] },
+            { caption: '简介', link: ['/dashboard'] },
             { caption: '活动', link: ['/events'] },
             { caption: '人群', link: ['/expats'] },
             { caption: '饭店', link: ['/food'] },
