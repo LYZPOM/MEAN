@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 // Get our API routes
 const api = require('./server/routes/api');
 const app = express();
+var cool = require('cool-ascii-faces');
 
 // Parsers for POST data
 app.use(bodyParser.json());
@@ -16,6 +17,9 @@ app.use(express.static(path.join(__dirname, 'dist')));
 
 //Set our api routes
 app.use('/api', api);
+app.get('/cool', function(request, response) {
+  response.send(cool());
+});
 
 /**
  * Get port from environment and store in Express.
