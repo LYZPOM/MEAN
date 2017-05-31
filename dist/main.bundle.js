@@ -412,7 +412,7 @@ module.exports = ""
 /***/ 676:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"mdl-layout mdl-js-layout mdl-layout--fixed-header\">\n<div>\n  <label>\n    {{ 'LANGUAGE' | translate }}\n    <select #langSelect (change)=\"changeLang(langSelect.value)\">\n      <option *ngFor=\"let lang of translate.getLangs()\" [value]=\"lang\" [selected]=\"lang === translate.currentLang\">{{ lang }}</option>\n    </select>\n  </label>\n</div>\n<expats-nav></expats-nav>\n<main class=\"mdl-layout__content\">\n    <section>\n     <div class=\"page-content\">\n       <router-outlet></router-outlet>\n     </div>\n    </section>\n    <footer class=\"mdl-mini-footer\">\n        <div class=\"footer-container\">\n            <div class=\"mdl-logo\">&copy; LYZ. Design: <a href=\"https://templateflip.com/\" target=\"_blank\">Expats in China</a></div>\n            <ul class=\"mdl-mini-footer__link-list\">\n                <li><a href=\"#\">Privacy & Terms</a></li>\n            </ul>\n        </div>\n    </footer>\n</main>\n</div>\n"
+module.exports = "<div class=\"mdl-layout mdl-js-layout mdl-layout--fixed-header\">\n<div>\n  <label>\n    {{ 'LANGUAGE' | translate }}\n    <select #langSelect (change)=\"changeLang(langSelect.value)\">\n      <option *ngFor=\"let lang of translate.getLangs()\" [value]=\"lang\" [selected]=\"lang === translate.currentLang\">{{ lang }}</option>\n    </select>\n  </label>\n</div>\n<expats-twitter-login></expats-twitter-login>\n<expats-nav></expats-nav>\n<main class=\"mdl-layout__content\">\n    <section>\n     <div class=\"page-content\">\n       <router-outlet></router-outlet>\n     </div>\n    </section>\n    <footer class=\"mdl-mini-footer\">\n        <div class=\"footer-container\">\n            <div class=\"mdl-logo\">&copy; LYZ. Design: <a href=\"https://templateflip.com/\" target=\"_blank\">Expats in China</a></div>\n            <ul class=\"mdl-mini-footer__link-list\">\n                <li><a href=\"#\">Privacy & Terms</a></li>\n            </ul>\n        </div>\n    </footer>\n</main>\n</div>\n"
 
 /***/ }),
 
@@ -426,7 +426,7 @@ module.exports = "<header class=\"mdl-layout__header mdl-layout__header--waterfa
 /***/ 678:
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"input--form3 auth-form\" method=\"get\" action=\"/auth/twitter\" style=\"display: block;\">\n    <p class=\"base--p\" style=\"text-align:center\">\n      <button type=\"submit\" class=\"base--button input--submit-button3\">Analyze my Twitter Personality</button>\n    </p>\n    <a href=\"/auth/facebook\" class=\"btn btn-info\"><span class=\"fa fa-twitter\"></span> Twitter</a>\n</form>\n"
+module.exports = "<form class=\"input--form3 auth-form\" method=\"get\" action=\"/auth/twitter\" style=\"display: block;\">\n    <p class=\"base--p\" style=\"text-align:center\">\n      <button type=\"submit\" class=\"base--button input--submit-button3\">Analyze my Twitter Personality</button>\n    </p>\n    <a href=\"/auth/twitter\" class=\"btn btn-info\"><span class=\"fa fa-twitter\"></span> Twitter</a>\n</form>\n"
 
 /***/ }),
 
