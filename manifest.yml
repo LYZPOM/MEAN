@@ -1,0 +1,7 @@
+---
+applications:
+- name: my-mean-app
+  command: node server.js
+  path: .
+  memory: 512M
+  instances: 1

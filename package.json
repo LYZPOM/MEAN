@@ -35,7 +35,8 @@
     "ts-helpers": "^1.1.1",
     "twitter": "^1.7.0",
     "watson-developer-cloud": "^2.16.0",
-    "zone.js": "^0.7.2"
+    "zone.js": "^0.7.2",
+    "connect-flash" : "~0.1.1"
   },
   "devDependencies": {
     "@angular/compiler-cli": "^2.3.1",
@@ -45,6 +46,7 @@
     "body-parser": "^1.17.2",
     "codelyzer": "~2.0.0-beta.1",
     "express": "^4.15.3",
+    "connect-flash" : "~0.1.1", 
     "jasmine-core": "2.5.2",
     "jasmine-spec-reporter": "2.5.0",
     "karma": "1.2.0",

@@ -1,48 +1,34 @@
-// Get dependencies
-const express = require('express');
+// server.js
+
+// set up ======================================================================
+// get all the tools we need
+var express  = require('express');
+var app      = express();
+var port     = process.env.PORT || 8080;
+var passport = require('passport');
+var flash    = require('connect-flash');
 const path = require('path');
-const http = require('http');
-const bodyParser = require('body-parser');
-const passport = require('passport');
-// Get our API routes
-const api = require('./server/routes/api');
-const app = express();
-// When running in Bluemix add rate-limitation
-// and some other features around security
-if (process.env.VCAP_APPLICATION) {
-  require('./server/config/security')(app);
-}
-require('./server/config/passport')(app);
 
-// Parsers for POST data
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
+var expressSession = require('express-session');
 
-// Point static path to dist
+require('./server/config/passport')(passport); // pass passport for configuration
+
+
+app.use(cookieParser()); // read cookies (needed for auth)
+app.use(bodyParser()); // get information from html forms
+
+// required for passport
+app.use(expressSession({ secret: 'ilovescotchscotchyscotchscotch' })); // session secret
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+app.use(flash()); // use connect-flash for flash messages stored in session
 app.use(express.static(path.join(__dirname, 'dist')));
 
-// twitter oauth
-app.get('/auth/twitter', passport.authenticate('twitter'));
-app.get('/auth/twitter/callback', passport.authenticate('twitter', {
-  failureRedirect: '/#error',
-  successRedirect: '/?source=myself'
-}));
+// routes ======================================================================
+require('./server/routes/api.js')(app, passport); // load our routes and pass in our app and fully configured passport
 
-//Set our api routes
-app.use('/api', api);
-
-/**
- * Get port from environment and store in Express.
- */
-const port = process.env.PORT || '3000';
-app.set('port', port);
-
-/**
- * Create HTTP server.
- */
-const server = http.createServer(app);
-
-/**
- * Listen on provided port, on all network interfaces.
- */
-server.listen(port, () => console.log(`API running on localhost:${port}`));
+// launch ======================================================================
+app.listen(port);
+console.log('The magic happens on port ' + port);

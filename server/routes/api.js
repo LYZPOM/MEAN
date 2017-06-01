@@ -1,28 +1,32 @@
-const express = require('express');
-const router = express.Router();
+module.exports = function(app, passport) {
 
-// declare axios for making http requests
-const axios = require('axios');
-const API = 'https://jsonplaceholder.typicode.com';
+	// route for showing the profile page
+	app.get('/profile', isLoggedIn, function(req, res) {
+		res.redirect('/');
+	});
 
-/* GET api listing. */
-router.get('/', (req, res) => {
-  res.send('api works');
-});
+	// =====================================
+	// TWITTER ROUTES =====================
+	// =====================================
+	// route for twitter authentication and login
+	app.get('/auth/twitter', passport.authenticate('twitter'));
 
+	// handle the callback after twitter has authenticated the user
+	app.get('/auth/twitter/callback',
+		passport.authenticate('twitter', {
+			successRedirect : '/profile',
+			failureRedirect : '/'
+		}));
 
-// Get all posts
-router.get('/posts', (req, res) => {
-  // Get posts from the mock api
-  // This should ideally be replaced with a service that connects to MongoDB
-  axios.get(`${API}/posts`)
-    .then(posts => {
-      res.status(200).json(posts.data);
-    })
-    .catch(error => {
-      res.status(500).send(error)
-    });
-});
+};
 
+// route middleware to make sure a user is logged in
+function isLoggedIn(req, res, next) {
 
-module.exports = router;
+	// if user is authenticated in the session, carry on
+	if (req.isAuthenticated())
+		return next();
+
+	// if they aren't redirect them to the home page
+	res.redirect('/');
+}
