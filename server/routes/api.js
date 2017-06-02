@@ -1,9 +1,10 @@
 module.exports = function(app, passport) {
 
-	// route for showing the profile page
-	app.get('/profile', isLoggedIn, function(req, res) {
-		res.redirect('/');
-	});
+	app.get('/', (req, res) =>
+    res.render('index', {
+      twitterUser: req.query.source ==='myself' && req.user ? req.user.profile : {}
+    })
+  );
 
 	// =====================================
 	// TWITTER ROUTES =====================
@@ -14,8 +15,8 @@ module.exports = function(app, passport) {
 	// handle the callback after twitter has authenticated the user
 	app.get('/auth/twitter/callback',
 		passport.authenticate('twitter', {
-			successRedirect : '/profile',
-			failureRedirect : '/'
+			failureRedirect: '/#error',
+      successRedirect: '/?source=myself'
 		}));
 
 };

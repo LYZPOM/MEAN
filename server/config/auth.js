@@ -12,7 +12,7 @@ module.exports = {
 	'twitterAuth' : {
 		'consumerKey' 		: 'Gna2jDXc1MJUHr9gTHZ8Cs7cE',
 		'consumerSecret' 	: 'g6Jk6W8JqE7PRT4Er6TYahfC1QL4k7YTyKkgiLmIn0UC8LCXBU',
-		'callbackURL' 		: 'http://localhost:8080/auth/twitter/callback'
+		'callbackURL' 		: 'https://my-mean-app.eu-gb.mybluemix.net/auth/twitter/callback'
 	},
 
 	'googleAuth' : {

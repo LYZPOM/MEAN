@@ -426,7 +426,7 @@ module.exports = "<header class=\"mdl-layout__header mdl-layout__header--waterfa
 /***/ 678:
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"input--form3 auth-form\" method=\"get\" action=\"/auth/twitter\" style=\"display: block;\">\n    <p class=\"base--p\" style=\"text-align:center\">\n      <button type=\"submit\" class=\"base--button input--submit-button3\">Analyze my Twitter Personality</button>\n    </p>\n    <a href=\"/auth/twitter\" class=\"btn btn-info\"><span class=\"fa fa-twitter\"></span> Twitter</a>\n</form>\n"
+module.exports = "<a href=\"/auth/twitter\" class=\"btn btn-info\"><span class=\"fa fa-twitter\"></span> Twitter</a>\n<div class=\"col-sm-6\">\n  <div class=\"well\">\n    <h3 class=\"text-info\"><span class=\"fa fa-twitter\"></span> Twitter</h3>\n      <p>\n        <strong>id</strong>: <%= TWITTER_USER %><br>\n      </p>\n  </div>\n</div>\n"
 
 /***/ }),
 

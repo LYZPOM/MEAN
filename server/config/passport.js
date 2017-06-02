@@ -28,15 +28,18 @@ module.exports = function(passport) {
     // TWITTER =================================================================
     // =========================================================================
     passport.use(new TwitterStrategy({
-
         consumerKey     : configAuth.twitterAuth.consumerKey,
         consumerSecret  : configAuth.twitterAuth.consumerSecret,
         callbackURL     : configAuth.twitterAuth.callbackURL
 
     },
     function(token, tokenSecret, profile, done) {
-         alert(" log in successfully ");
          process.nextTick(function() {
+           const photo = profile.photos ? profile.photos[0] : undefined;
+           const userProfile = {
+            handle: profile.username,
+            image: photo ? photo.value.replace('_normal', '_400x400') : undefined
+           };
         });
     }));
 
