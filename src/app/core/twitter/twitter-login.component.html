@@ -1,9 +1,9 @@
-<a href="/auth/twitter" class="btn btn-info"><span class="fa fa-twitter"></span> Twitter</a>
-<div class="col-sm-6">
-  <div class="well">
-    <h3 class="text-info"><span class="fa fa-twitter"></span> Twitter</h3>
-      <p>
-        <strong>id</strong>: <%= TWITTER_USER %><br>
-      </p>
-  </div>
+<div>
+  <label>
+    {{ 'LANGUAGE' | translate }}
+    <select #langSelect (change)="changeLang(langSelect.value)">
+      <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>
+    </select>
+  </label>
+  <a href="/auth/twitter" class="btn btn-info"><span class="fa fa-twitter"></span> Twitter</a>
 </div>

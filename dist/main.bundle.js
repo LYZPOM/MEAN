@@ -1,5 +1,45 @@
 webpackJsonp([3,6],{
 
+/***/ 114:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LocalStorage; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var LocalStorage = (function () {
+    function LocalStorage() {
+        this.langUpdated = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* EventEmitter */]();
+    }
+    LocalStorage.prototype.getItem = function (key) {
+        if (localStorage[key]) {
+            return JSON.parse(localStorage[key]);
+        }
+        return null;
+    };
+    LocalStorage.prototype.setItem = function (key, item) {
+        localStorage[key] = JSON.stringify(item);
+        this.langUpdated.emit(localStorage[key]);
+    };
+    LocalStorage = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* Injectable */])(), 
+        __metadata('design:paramtypes', [])
+    ], LocalStorage);
+    return LocalStorage;
+}());
+//# sourceMappingURL=/Users/yuzhuoli/Documents/MEAN/src/local-storage.js.map
+
+/***/ }),
+
 /***/ 398:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -55,8 +95,6 @@ __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dyna
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__ = __webpack_require__(166);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__core_common_local_storage__ = __webpack_require__(83);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -68,38 +106,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-
-
 var AppComponent = (function () {
-    function AppComponent(translate, storage) {
-        this.translate = translate;
-        this.storage = storage;
-        translate.addLangs(['zh-CN', 'en']);
-        translate.setDefaultLang('en');
-        var broswerLang = translate.getBrowserLang();
-        var currentLang = broswerLang.match(/en|zh-CN/) ? broswerLang : 'en';
-        translate.use(currentLang);
-        this.storage.setItem('lang', { lang: currentLang });
+    function AppComponent() {
     }
-    AppComponent.prototype.changeLang = function (lang) {
-        console.log(lang);
-        this.translate.use(lang);
-        this.storage.setItem('lang', { lang: lang });
-    };
-    AppComponent.prototype.getLang = function () {
-        console.log(this.translate.getBrowserLang());
-        console.log(this.translate.getBrowserCultureLang());
-    };
     AppComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["e" /* Component */])({
             selector: 'app-root',
             template: __webpack_require__(676),
             styles: [__webpack_require__(675)]
         }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["c" /* TranslateService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["c" /* TranslateService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__core_common_local_storage__["a" /* LocalStorage */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__core_common_local_storage__["a" /* LocalStorage */]) === 'function' && _b) || Object])
+        __metadata('design:paramtypes', [])
     ], AppComponent);
     return AppComponent;
-    var _a, _b;
 }());
 //# sourceMappingURL=/Users/yuzhuoli/Documents/MEAN/src/app.component.js.map
 
@@ -112,12 +130,12 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(150);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(312);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(167);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(252);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ngx_translate_core__ = __webpack_require__(166);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ngx_translate_http_loader__ = __webpack_require__(254);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_router__ = __webpack_require__(253);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_component__ = __webpack_require__(515);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_common_local_storage__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__core_common_local_storage__ = __webpack_require__(114);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__core_core_module__ = __webpack_require__(517);
 /* unused harmony export HttpLoaderFactory */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
@@ -197,15 +215,15 @@ var AppModule = (function () {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__(83);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(312);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__(253);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__nav_nav_component__ = __webpack_require__(518);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__twitter_twitter_login_component__ = __webpack_require__(519);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_http__ = __webpack_require__(167);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_http__ = __webpack_require__(252);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ngx_translate_core__ = __webpack_require__(166);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ngx_translate_http_loader__ = __webpack_require__(254);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__common_local_storage__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__common_local_storage__ = __webpack_require__(114);
 /* unused harmony export HttpLoaderFactory */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CoreModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -273,7 +291,7 @@ var CoreModule = (function () {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_local_storage__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_local_storage__ = __webpack_require__(114);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NavComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -345,8 +363,8 @@ var NavComponent = (function () {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_local_storage__ = __webpack_require__(83);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(167);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__ = __webpack_require__(166);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__common_local_storage__ = __webpack_require__(114);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TwitterLoginComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -361,23 +379,31 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var TwitterLoginComponent = (function () {
-    function TwitterLoginComponent(storage, http) {
+    function TwitterLoginComponent(translate, storage) {
+        this.translate = translate;
         this.storage = storage;
-        this.http = http;
-        this.localLang = this.storage.getItem('lang')['lang'];
+        translate.addLangs(['zh-CN', 'en']);
+        translate.setDefaultLang('en');
+        var broswerLang = translate.getBrowserLang();
+        var currentLang = broswerLang.match(/en|zh-CN/) ? broswerLang : 'en';
+        translate.use(currentLang);
+        this.storage.setItem('lang', { lang: currentLang });
     }
-    TwitterLoginComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.storage.langUpdated.subscribe(function (lang) {
-            _this.localLang = _this.storage.getItem('lang')['lang'];
-        });
+    TwitterLoginComponent.prototype.changeLang = function (lang) {
+        console.log(lang);
+        this.translate.use(lang);
+        this.storage.setItem('lang', { lang: lang });
+    };
+    TwitterLoginComponent.prototype.getLang = function () {
+        console.log(this.translate.getBrowserLang());
+        console.log(this.translate.getBrowserCultureLang());
     };
     TwitterLoginComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["e" /* Component */])({
             selector: 'expats-twitter-login',
             template: __webpack_require__(678)
         }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__common_local_storage__["a" /* LocalStorage */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__common_local_storage__["a" /* LocalStorage */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]) === 'function' && _b) || Object])
+        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["c" /* TranslateService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["c" /* TranslateService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__common_local_storage__["a" /* LocalStorage */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__common_local_storage__["a" /* LocalStorage */]) === 'function' && _b) || Object])
     ], TwitterLoginComponent);
     return TwitterLoginComponent;
     var _a, _b;
@@ -412,7 +438,7 @@ module.exports = ""
 /***/ 676:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"mdl-layout mdl-js-layout mdl-layout--fixed-header\">\n<div>\n  <label>\n    {{ 'LANGUAGE' | translate }}\n    <select #langSelect (change)=\"changeLang(langSelect.value)\">\n      <option *ngFor=\"let lang of translate.getLangs()\" [value]=\"lang\" [selected]=\"lang === translate.currentLang\">{{ lang }}</option>\n    </select>\n  </label>\n</div>\n<expats-twitter-login></expats-twitter-login>\n<expats-nav></expats-nav>\n<main class=\"mdl-layout__content\">\n    <section>\n     <div class=\"page-content\">\n       <router-outlet></router-outlet>\n     </div>\n    </section>\n    <footer class=\"mdl-mini-footer\">\n        <div class=\"footer-container\">\n            <div class=\"mdl-logo\">&copy; LYZ. Design: <a href=\"https://templateflip.com/\" target=\"_blank\">Expats in China</a></div>\n            <ul class=\"mdl-mini-footer__link-list\">\n                <li><a href=\"#\">Privacy & Terms</a></li>\n            </ul>\n        </div>\n    </footer>\n</main>\n</div>\n"
+module.exports = "<div class=\"mdl-layout mdl-js-layout mdl-layout--fixed-header\">\n<expats-twitter-login></expats-twitter-login>\n<expats-nav></expats-nav>\n<main class=\"mdl-layout__content\">\n    <section>\n     <div class=\"page-content\">\n       <router-outlet></router-outlet>\n     </div>\n    </section>\n    <footer class=\"mdl-mini-footer\">\n        <div class=\"footer-container\">\n            <div class=\"mdl-logo\">&copy; LYZ. Design: <a href=\"https://templateflip.com/\" target=\"_blank\">Expats in China</a></div>\n            <ul class=\"mdl-mini-footer__link-list\">\n                <li><a href=\"#\">Privacy & Terms</a></li>\n            </ul>\n        </div>\n    </footer>\n</main>\n</div>\n"
 
 /***/ }),
 
@@ -426,7 +452,7 @@ module.exports = "<header class=\"mdl-layout__header mdl-layout__header--waterfa
 /***/ 678:
 /***/ (function(module, exports) {
 
-module.exports = "<a href=\"/auth/twitter\" class=\"btn btn-info\"><span class=\"fa fa-twitter\"></span> Twitter</a>\n<div class=\"col-sm-6\">\n  <div class=\"well\">\n    <h3 class=\"text-info\"><span class=\"fa fa-twitter\"></span> Twitter</h3>\n      <p>\n        <strong>id</strong>: <%= TWITTER_USER %><br>\n      </p>\n  </div>\n</div>\n"
+module.exports = "<div>\n  <label>\n    {{ 'LANGUAGE' | translate }}\n    <select #langSelect (change)=\"changeLang(langSelect.value)\">\n      <option *ngFor=\"let lang of translate.getLangs()\" [value]=\"lang\" [selected]=\"lang === translate.currentLang\">{{ lang }}</option>\n    </select>\n  </label>\n  <a href=\"/auth/twitter\" class=\"btn btn-info\"><span class=\"fa fa-twitter\"></span> Twitter</a>\n</div>\n"
 
 /***/ }),
 
@@ -435,46 +461,6 @@ module.exports = "<a href=\"/auth/twitter\" class=\"btn btn-info\"><span class=\
 
 module.exports = __webpack_require__(399);
 
-
-/***/ }),
-
-/***/ 83:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LocalStorage; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var LocalStorage = (function () {
-    function LocalStorage() {
-        this.langUpdated = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* EventEmitter */]();
-    }
-    LocalStorage.prototype.getItem = function (key) {
-        if (localStorage[key]) {
-            return JSON.parse(localStorage[key]);
-        }
-        return null;
-    };
-    LocalStorage.prototype.setItem = function (key, item) {
-        localStorage[key] = JSON.stringify(item);
-        this.langUpdated.emit(localStorage[key]);
-    };
-    LocalStorage = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* Injectable */])(), 
-        __metadata('design:paramtypes', [])
-    ], LocalStorage);
-    return LocalStorage;
-}());
-//# sourceMappingURL=/Users/yuzhuoli/Documents/MEAN/src/local-storage.js.map
 
 /***/ })
 

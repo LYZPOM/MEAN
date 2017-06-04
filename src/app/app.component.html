@@ -1,12 +1,4 @@
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-<div>
-  <label>
-    {{ 'LANGUAGE' | translate }}
-    <select #langSelect (change)="changeLang(langSelect.value)">
-      <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>
-    </select>
-  </label>
-</div>
 <expats-twitter-login></expats-twitter-login>
 <expats-nav></expats-nav>
 <main class="mdl-layout__content">

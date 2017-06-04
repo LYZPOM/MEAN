@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core'
 import {LocalStorage} from '../common/local-storage';
 import { Http, Headers} from '@angular/http';
 
@@ -6,19 +7,26 @@ import { Http, Headers} from '@angular/http';
   selector: 'expats-twitter-login',
   templateUrl: './twitter-login.component.html'
 })
-export class TwitterLoginComponent implements OnInit {
-  localLang : string ;
+export class TwitterLoginComponent  {
 
-  ngOnInit() {
-    this.storage.langUpdated.subscribe(
-      (lang) => {
-        this.localLang = this.storage.getItem('lang')['lang'];
-        }
-    );
+  constructor(private translate: TranslateService, private storage: LocalStorage) {
+    translate.addLangs(['zh-CN', 'en']);
+    translate.setDefaultLang('en');
+
+    let broswerLang = translate.getBrowserLang();
+    let currentLang = broswerLang.match(/en|zh-CN/) ? broswerLang : 'en';
+    translate.use(currentLang);
+    this.storage.setItem('lang', { lang: currentLang});
   }
 
-  constructor(private storage: LocalStorage, private http: Http) {
-      this.localLang = this.storage.getItem('lang')['lang'];
+  changeLang(lang) {
+    console.log(lang);
+    this.translate.use(lang);
+    this.storage.setItem('lang',{ lang: lang});
+  }
+  getLang() {
+    console.log(this.translate.getBrowserLang());
+    console.log(this.translate.getBrowserCultureLang());
   }
 
 }
