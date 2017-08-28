@@ -13,7 +13,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var expressSession = require('express-session');
 
-require('./server/app/config/passport')(passport); // pass passport for configuration
+require('./config/passport')(passport); // pass passport for configuration
 
 
 app.use(cookieParser()); // read cookies (needed for auth)
@@ -24,10 +24,10 @@ app.use(expressSession({ secret: 'ilovescotchscotchyscotchscotch' })); // sessio
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
-app.use(express.static(path.join(__dirname, 'dist')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // routes ======================================================================
-require('./server/app/routes/api.js')(app, passport); // load our routes and pass in our app and fully configured passport
+require('./routes/api.js')(app, passport); // load our routes and pass in our app and fully configured passport
 
 // launch ======================================================================
 app.listen(port);

@@ -1,0 +1,7 @@
+["./app/app.js",
+"./app/app-config.js",
+"./app/services/app-services.js",
+"./app/components/modules/app-modules.js",
+"./app/components/views/app-views.js",
+"./app/components/widgets/app-widgets.js"
+]

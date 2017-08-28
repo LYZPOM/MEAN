@@ -2,9 +2,12 @@
 
 # compiled output
 /tmp
+/dist
+/server/app/public
 
 # dependencies
 /node_modules
+/server/node_modules
 
 # IDEs and editors
 /.idea
